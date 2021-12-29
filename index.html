@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>truth or dare</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Vujahday+Script&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="psw">
+        <div class="psw0">
+            <form action="">
+                <h1>truth or dare</h1>
+                <input id="key" type="password" placeholder="Password...">
+                <span id="wrng"> Wrong Password</span>
+                <button id="chk" onclick="check(event)">Log in</button>
+                <span>if u dont have password ask it from <a href="https://t.me/Mohssineoussama">Zinom</a> </span>
+            </form>
+        </div>
+    </div>
+    <div class="game">
+        <div class="output">
+            <h1>player : <span id="player"></span> </h1>
+            <h3 id="rslt"></h3>
+        </div>
+        <div class="start">
+            <div class="btn" onclick="play1(nmbr)">Truth</div>
+            <div class="btn" onclick="play2(nmbr)">Dare</div>
+            <div class="prsns">
+                <span id="nmbr"></span>
+                <input value="5" onchange="idk()" type="range" step="1" max="6" min="2" class="slider">
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="pc">
+        <img style="height: 40vh;" src="images/pngegg.png" alt="">
+        <h1 style=" text-align:center">it will be available <br> for pc soon </h1>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

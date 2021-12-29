@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  --sliderImage: url("png/5.png");
+}
+.pc {
+  display: none;
+}
+@media (min-width: 550px) {
+  .pc {
+    background-color: #eee;
+    z-index: 95;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+.psw {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.psw form {
+  background-color: #111;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  color: white;
+  height: 50vh;
+  width: 90vw;
+  text-align: center;
+  align-items: center;
+  border-radius: 29px;
+  position: relative;
+  z-index: 3;
+  left: 4px;
+  top: 4px;
+}
+.psw0 {
+  position: relative;
+  height: calc(50vh + 8px);
+  width: calc(90vw + 8px);
+  overflow: hidden;
+  border-radius: 29px;
+}
+.psw0::after {
+  content: "";
+  animation: turn 2s infinite linear;
+
+  height: 4000px;
+  width: 4000px;
+  position: absolute;
+  background-image: conic-gradient(red 30deg, black 75deg);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.psw form #key {
+  height: 40px;
+  width: 60%;
+  outline: red 3px inset;
+  border-radius: 50px;
+  padding: 0 20px;
+  border: transparent;
+}
+.psw form #chk {
+  width: 40%;
+  height: 45px;
+  background-color: red;
+  border: red 2px solid;
+  border-radius: 20px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 30px;
+  z-index: 99;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.psw form #chk:hover {
+  color: red;
+  background-color: transparent;
+}
+.psw form h1 {
+  margin-top: 10px;
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 50px;
+  font-family: "Vujahday Script", cursive;
+  text-decoration: underline solid rgb(126, 126, 126) 5px;
+}
+.psw form #wrng {
+  color: rgb(223, 0, 0);
+  font-weight: 900;
+  font-size: 23px;
+  margin-top: -20px;
+  display: none;
+}
+.anim {
+  animation: fade 2s forwards ease-in;
+}
+.psw form span {
+  font-size: 13px;
+  margin-bottom: -20px;
+  color: #ddd;
+}
+.psw form span a {
+  color: rgb(199, 0, 0);
+  font-weight: 700;
+}
+
+.game {
+  display: none;
+  flex-flow: column;
+  row-gap: 50px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #222;
+  justify-content: center;
+  align-items: center;
+}
+.game .start {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: #111;
+  height: 40vh;
+  width: 90vw;
+  border-radius: 25px;
+  justify-content: space-around;
+  align-items: center;
+}
+.game .output {
+  border-radius: 25px;
+  background-color: #aaa;
+  height: 50vh;
+  width: 90vw;
+  padding: 20px;
+}
+.game .start .btn {
+  background-color: green;
+  width: 30vw;
+  height: 30vw;
+  border-radius: 50%;
+  line-height: 30vw;
+  text-align: center;
+  font-weight: 900;
+  font-size: 32px;
+  cursor: pointer;
+}
+.game .start .btn:nth-of-type(2) {
+  background-color: red;
+}
+.game .start .btn:hover {
+  filter: grayscale(0.5);
+  border: rgba(0, 0, 0, 0.74) 4px inset;
+}
+.game .start .prsns {
+  height: 50px;
+  position: absolute;
+  top: -50px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+}
+.game .start .prsns #nmbr {
+  background-color: white;
+  font-size: 30px;
+  margin-top: -2px;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+}
+.slider {
+  appearance: none;
+  width: 75vw;
+  height: 30px;
+  z-index: 3;
+  border-radius: 20px;
+  background-color: rgb(146, 0, 0);
+  outline: none;
+}
+.slider::-moz-range-thumb {
+  background-color: rgb(255, 255, 255);
+  width: 10vw;
+  height: 90%;
+  outline: none;
+  cursor: pointer;
+  border: transparent;
+  content: "7";
+}
+@keyframes turn {
+  form {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes fade {
+  form {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
