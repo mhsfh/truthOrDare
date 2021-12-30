@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>truth or dare</title>
     <link rel="stylesheet" href="css/style.css">
-
+    <script src="https://kit.fontawesome.com/e59384867f.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,12 +22,43 @@
                 <h1>truth or dare</h1>
                 <input id="key" type="password" placeholder="Password...">
                 <span id="wrng"> Wrong Password</span>
+                <div class="opt">
+                    <h5>number of players : <span id="nmbr">4</span> </h5>
+                    <input value="4" onchange="idk()" type="range" step="1" max="6" min="2" class="slider">
+                    <h5>randomly ? </h5>
+                    <label class="switch">
+                        <input type="checkbox" id="random">
+                        <span class="sliderx"></span>
+                    </label>
+
+                </div>
                 <button id="chk" onclick="check(event)">Log in</button>
                 <span>if u dont have password ask it from <a href="https://t.me/Mohssineoussama">Zinom</a> </span>
             </form>
         </div>
     </div>
+
+
+
     <div class="game">
+
+        <div class="menu">
+            <div class="suggestion">
+                <a href="#content">suggestion & report <i class="fas fa-bug"></i></a href="#content">
+
+            </div>
+        </div>
+        <div class="content" id="content">
+            <a href="#"><i class="fas fa-times-circle"></i></a>
+            <form action="https://formspree.io/f/xyyozwvn" method="post" id="my-form">
+                <h2>Report a problem <br> Or <br> Suggeste option </h2>
+                <input type="email" name="email" placeholder="Email" id="email">
+                <input type="text" name="name" placeholder="Your Name" id="name">
+                <textarea name="msg" id="msg" placeholder="your messege" cols="30" rows="10"></textarea>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+        <div id="my-form-status">Thanks for your submission!</div>
         <div class="output">
             <h1>player : <span id="player"></span> </h1>
             <h3 id="rslt"></h3>
@@ -35,10 +66,7 @@
         <div class="start">
             <div class="btn" onclick="play1(nmbr)">Truth</div>
             <div class="btn" onclick="play2(nmbr)">Dare</div>
-            <div class="prsns">
-                <span id="nmbr"></span>
-                <input value="5" onchange="idk()" type="range" step="1" max="6" min="2" class="slider">
-            </div>
+
         </div>
 
 
