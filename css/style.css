@@ -3,18 +3,18 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-:root{
+:root {
   --orange: #cc8a43;
-  --rose:#df00b7;
-  --lightBleu:#5fa3b1;
-  --movv:#9600b9;
-  --main:#8a6cd3;
-  --second:#262132;
-  --lsecond:#2e273e;
-  --br:#9c7ee9;
-  --gray:#858097;
-  --sp:#a485f5;
-  --notimp:#878299;
+  --rose: #df00b7;
+  --lightBleu: #5fa3b1;
+  --movv: #9600b9;
+  --main: #8a6cd3;
+  --second: #262132;
+  --lsecond: #2e273e;
+  --br: #9c7ee9;
+  --gray: #858097;
+  --sp: #a485f5;
+  --notimp: #878299;
 }
 .pc {
   display: none;
@@ -82,11 +82,12 @@ body {
   width: 4000px;
   position: absolute;
   background-image: conic-gradient(
-    var(--movv) 10deg, var(--orange),
+    var(--movv) 10deg,
+    var(--orange),
     var(--rose),
     var(--lightBleu),
     var(--movv)
-    );
+  );
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -141,7 +142,8 @@ body {
   margin-bottom: -20px;
   color: var(--notimp);
 }
-.psw form span a {  color: var(--movv);
+.psw form span a {
+  color: var(--movv);
   font-weight: 700;
 }
 
@@ -211,6 +213,7 @@ body {
   border-radius: 10px;
 }
 .slider {
+  -webkit-appearance: none;
   appearance: none;
   width: 60vw;
   height: 6px;
@@ -219,7 +222,8 @@ body {
   background-color: var(--main);
   outline: none;
 }
-.slider::-moz-range-thumb,.slider::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   background-color: var(--main);
   border-radius: 50%;
   width: 20px;
@@ -227,7 +231,19 @@ body {
   outline: none;
   cursor: pointer;
   border: transparent;
-  content: "7";
+  border: var(--second) 3px solid;
+  box-sizing: border-box;
+}
+.slider::-moz-range-thumb,
+.slider::-ms-thumb {
+  -webkit-appearance: none;
+  background-color: var(--main);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  outline: none;
+  cursor: pointer;
+  border: transparent;
   border: var(--second) 3px solid;
   box-sizing: border-box;
 }
@@ -303,7 +319,7 @@ input:checked + .sliderx:before {
   -webkit-transform: translateX(29px);
   -ms-transform: translateX(29px);
   transform: translateX(29px);
-  border-color:var(--main) ;
+  border-color: var(--main);
 }
 
 .content {
