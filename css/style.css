@@ -3,6 +3,19 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+:root{
+  --orange: #cc8a43;
+  --rose:#df00b7;
+  --lightBleu:#5fa3b1;
+  --movv:#9600b9;
+  --main:#8a6cd3;
+  --second:#262132;
+  --lsecond:#2e273e;
+  --br:#9c7ee9;
+  --gray:#858097;
+  --sp:#a485f5;
+  --notimp:#878299;
+}
 .pc {
   display: none;
 }
@@ -31,13 +44,13 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  background-color: black;
+  background-color: var(--lsecond);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .psw form {
-  background-color: #111;
+  background-color: var(--second);
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
@@ -51,6 +64,7 @@ body {
   z-index: 3;
   left: 4px;
   top: 4px;
+  min-height: 600px;
 }
 .psw0 {
   position: relative;
@@ -58,42 +72,51 @@ body {
   width: calc(90vw + 8px);
   overflow: hidden;
   border-radius: 29px;
+  min-height: 608px;
 }
 .psw0::after {
   content: "";
-  animation: turn 2s infinite linear;
+  animation: turn 1s infinite linear;
 
   height: 4000px;
   width: 4000px;
   position: absolute;
-  background-image: conic-gradient(red 30deg, black 75deg);
+  background-image: conic-gradient(
+    var(--movv) 10deg, var(--orange),
+    var(--rose),
+    var(--lightBleu),
+    var(--movv)
+    );
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .psw form #key {
-  height: 40px;
+  background-color: var(--second);
   width: 60%;
-  outline: red 3px inset;
-  border-radius: 50px;
-  padding: 0 20px;
+  outline: none;
+  padding: 10px 20px;
   border: transparent;
+  border-bottom: var(--br) 4px solid;
+  color: var(--gray);
+  font-size: 18px;
 }
 .psw form #chk {
   width: 40%;
   height: 45px;
-  background-color: red;
-  border: red 2px solid;
+  background-color: var(--main);
+  border: var(--main) 2px solid;
   border-radius: 20px;
   font-size: 24px;
   font-weight: 900;
   line-height: 30px;
   z-index: 99;
+  color: var(--second);
   cursor: pointer;
   margin-top: 10px;
 }
 .psw form #chk:hover {
-  color: red;
+  color: var(--main);
   background-color: transparent;
 }
 .psw form h1 {
@@ -101,7 +124,7 @@ body {
   font-family: "Big Shoulders Display", cursive;
   font-size: 50px;
   font-family: "Vujahday Script", cursive;
-  text-decoration: underline solid rgb(126, 126, 126) 5px;
+  text-decoration: underline solid var(--sp) 1px;
 }
 .psw form #wrng {
   color: rgb(223, 0, 0);
@@ -116,10 +139,9 @@ body {
 .psw form span {
   font-size: 13px;
   margin-bottom: -20px;
-  color: #ddd;
+  color: var(--notimp);
 }
-.psw form span a {
-  color: rgb(199, 0, 0);
+.psw form span a {  color: var(--movv);
   font-weight: 700;
 }
 
@@ -191,14 +213,14 @@ body {
 .slider {
   appearance: none;
   width: 60vw;
-  height: 10px;
+  height: 6px;
   z-index: 3;
   border-radius: 20px;
-  background-color: rgb(255, 21, 21);
+  background-color: var(--main);
   outline: none;
 }
-.slider::-moz-range-thumb {
-  background-color: rgb(255, 255, 255);
+.slider::-moz-range-thumb,.slider::-webkit-slider-thumb {
+  background-color: var(--main);
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -206,6 +228,8 @@ body {
   cursor: pointer;
   border: transparent;
   content: "7";
+  border: var(--second) 3px solid;
+  box-sizing: border-box;
 }
 @keyframes turn {
   form {
@@ -228,7 +252,7 @@ body {
   position: relative;
   display: inline-block;
   width: 60px;
-  height: 34px;
+  height: 25px;
 }
 
 .switch input {
@@ -244,7 +268,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(0, 0, 0);
+  background-color: var(--gray);
   -webkit-transition: 0.4s;
   transition: 0.4s;
   margin-bottom: 0px !important;
@@ -253,20 +277,22 @@ body {
 }
 
 .sliderx:before {
+  box-sizing: border-box;
   border-radius: 50px;
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
+  height: 35px;
+  width: 35px;
+  left: -1px;
+  bottom: -5px;
+  background-color: var(--second);
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  border: var(--gray) 5px solid;
 }
 
 input:checked + .sliderx {
-  background-color: #f32121;
+  background-color: var(--main);
 }
 
 input:focus + .sliderx {
@@ -274,9 +300,10 @@ input:focus + .sliderx {
 }
 
 input:checked + .sliderx:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(29px);
+  -ms-transform: translateX(29px);
+  transform: translateX(29px);
+  border-color:var(--main) ;
 }
 
 .content {
