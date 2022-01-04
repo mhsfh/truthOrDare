@@ -58,7 +58,9 @@ function check(event) {
       console.log(spinning);
       player.style.display = "none";
       spinning.style.display = "flex";
-
+      document.getElementsByClassName("output")[0].style.height = "140px";
+      document.getElementsByClassName("start")[0].style.height = "150px";
+      document.getElementById("rslt").style.margin = "0px";
       document.getElementById("spinner0").checked = true;
     }
   } else {
