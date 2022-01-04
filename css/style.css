@@ -229,6 +229,7 @@ body {
   border-radius: 20px;
   background-color: var(--main);
   outline: none;
+  margin: 0 35px;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -406,4 +407,43 @@ input:checked + .sliderx:before {
   border-radius: 10px;
   display: none;
   animation: fade 4s 1s forwards;
+}
+.spinning {
+  background-color: var(--second);
+  height: 95vw;
+  width: 95vw;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+  border-radius: 10px;
+}
+.spinning .spinner {
+  margin: 20px;
+  transition: transform 5s;
+  background-image: conic-gradient(
+    var(--movv) 10deg,
+    var(--orange),
+    var(--rose),
+    var(--lightBleu),
+    var(--movv)
+  );
+  height: 85vw;
+  width: 85vw;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinning .spinner i {
+  font-size: 30vw;
+  color: var(--lsecond);
+  transform: rotate(-45deg);
+}
+.opt0 {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
 }

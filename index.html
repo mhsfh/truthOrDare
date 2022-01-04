@@ -25,11 +25,24 @@
                 <div class="opt">
                     <h5>number of players : <span id="nmbr">4</span> </h5>
                     <input value="4" onchange="idk()" type="range" step="1" max="6" min="2" class="slider">
-                    <h5>randomly ? </h5>
-                    <label class="switch">
-                        <input type="checkbox" id="random">
-                        <span class="sliderx"></span>
-                    </label>
+                    <div class="opt0">
+                        <div>
+                            <h5>spinner mode ? </h5>
+                            <label class="switch">
+                                <input type="checkbox" id="spinner">
+                                <span class="sliderx"></span>
+                            </label>
+                        </div>
+                        <div>
+                            <h5>randomly ? </h5>
+                            <label class="switch">
+                                <input type="checkbox" id="random">
+                                <span class="sliderx"></span>
+                            </label>
+                        </div>
+
+
+                    </div>
 
                 </div>
                 <button id="chk" onclick="check(event)">Log in</button>
@@ -62,6 +75,11 @@
         <div class="output">
             <h1>player : <span id="player"></span> </h1>
             <h3 id="rslt"></h3>
+        </div>
+        <div class="spinning">
+            <div class="spinner">
+                <i class="fas fa-location-arrow"></i>
+            </div>
         </div>
         <div class="start">
             <div class="btn" onclick="play1(nmbr)">Truth</div>
