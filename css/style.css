@@ -6,8 +6,10 @@ body {
 :root {
   --orange: #cc8a43;
   --rose: #df00b7;
+  --rose2: #d889d4;
   --lightBleu: #5fa3b1;
   --movv: #9600b9;
+  --movv2: #6600b9;
   --main: #8a6cd3;
   --second: #262132;
   --lsecond: #2e273e;
@@ -120,12 +122,22 @@ body {
   color: var(--main);
   background-color: transparent;
 }
-.psw form h1 {
+.title {
   margin-top: 10px;
-  font-family: "Big Shoulders Display", cursive;
   font-size: 50px;
   font-family: "Vujahday Script", cursive;
   text-decoration: underline solid var(--sp) 1px;
+}
+.game .title {
+  color: white;
+  background-color: var(--second);
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding-left: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .psw form #wrng {
   color: rgb(223, 0, 0);
@@ -148,7 +160,7 @@ body {
 }
 
 .game {
-  padding: 70px 0 0;
+  padding-top: 80px;
   display: none;
   flex-flow: column;
   row-gap: 50px;
@@ -156,7 +168,7 @@ body {
   height: 100vh;
   background-image: url("../images/bg.jpg");
   background-size: cover;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 .game .start {
@@ -173,7 +185,7 @@ body {
 }
 .game .output {
   border-radius: 25px;
-
+  min-height: 159px;
   background-image: linear-gradient(
     -30deg,
     var(--lightBleu),
@@ -187,7 +199,7 @@ body {
   padding: 20px;
 }
 .game .start .btn {
-  background-image: linear-gradient(130deg, var(--main), var(--movv));
+  background-image: linear-gradient(90deg, var(--movv2), var(--lightBleu));
   width: 30vw;
   height: 30vw;
   border-radius: 50%;
@@ -197,6 +209,9 @@ body {
   font-size: 32px;
   cursor: pointer;
   filter: saturate(2.5);
+}
+.game .start .btn:nth-of-type(2) {
+  background-image: linear-gradient(120deg, var(--orange), var(--rose2));
 }
 .game .start .btn:hover {
   filter: saturate(3.5);
@@ -369,23 +384,14 @@ input:checked + .sliderx:before {
   padding: 5px 10px;
   background-color: black;
 }
-.menu {
-  border-radius: 5px;
-  background-color: var(--second);
-  height: 50px;
-  width: 90vw;
-  padding: 10px;
-  position: absolute;
-  top: 10px;
-  right: 50%;
-  transform: translateX(50%);
-  text-align: center;
-}
-.menu .suggestion a {
+
+#menu li h5,
+#menu a {
   color: var(--notimp);
   text-decoration: none;
   font-weight: 700;
-  font-size: 20px;
+  margin: 10px 0;
+  font-size: 15px;
 }
 .content a {
   color: white;
@@ -446,4 +452,83 @@ input:checked + .sliderx:before {
   flex-flow: row;
   justify-content: space-around;
   align-items: center;
+}
+#menu {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 85vw;
+  position: fixed;
+  right: 100%;
+  z-index: 2;
+  top: 0;
+  background-color: var(--second);
+  transition: transform 1.5s;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+#menu li {
+  list-style: none;
+  padding: 15px 25px 15px 70px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#menu li:nth-of-type(3) {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+#menu li:nth-of-type(1) span i::after {
+  width: 5px;
+  background-color: var(--second);
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: 40%;
+  content: "";
+  left: 41%;
+}
+#menu li span:first-child {
+  color: var(--gray);
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+}
+#menu > span {
+  cursor: pointer;
+  position: absolute;
+  left: calc(100% - 5px);
+  font-size: 30px;
+  color: white;
+  background-color: var(--second);
+  padding: 5px 5px 5px 15px;
+  border-radius: 0 10px 10px 0;
+  top: 8px;
+}
+.show {
+  transform: translateX(100%);
+}
+
+.turn {
+  animation: turnme 3s infinite linear;
+}
+@keyframes turnme {
+  form {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.game .slider {
+  width: 100%;
+  margin: 10px 0;
 }

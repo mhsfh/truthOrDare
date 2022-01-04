@@ -13,13 +13,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Vujahday+Script&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
 </head>
 
 <body>
     <div class="psw">
         <div class="psw0">
             <form action="">
-                <h1>truth or dare</h1>
+                <h1 class="title">truth or dare</h1>
                 <input id="key" type="password" placeholder="Password...">
                 <span id="wrng"> Wrong Password</span>
                 <div class="opt">
@@ -54,13 +55,35 @@
 
 
     <div class="game">
+        <h1 class="title">truth or dare</h1>
+        <ul id="menu">
+            <span><i class="fas fa-cog"></i></span>
+            <li>
+                <span><i class="fas fa-compass"></i></span>
+                <h5>spinner mode ? </h5>
+                <label class="switch">
+                    <input type="checkbox" id="spinner0">
+                    <span class="sliderx"></span>
+                </label>
+            </li>
+            <li>
+                <span><i class="fas fa-random"></i></span>
+                <h5>randomly ? </h5>
+                <label class="switch">
+                    <input type="checkbox" id="random">
+                    <span class="sliderx"></span>
+                </label>
+            </li>
+            <li>
+                <h5>number of players <span id="nmbr">X</span> </h5>
+                <input value="4" onchange="idk()" type="range" step="1" max="6" min="2" class="slider">
 
-        <div class="menu">
-            <div class="suggestion">
-                <a href="#content">suggestion & report <i class="fas fa-bug"></i></a href="#content">
+            </li>
+            <li> <span><i class="fas fa-bug"></i></span> <a href="#content">suggestion & report </a href="#content">
+            </li>
+        </ul>
 
-            </div>
-        </div>
+
         <div class="content" id="content">
             <a href="#"><i class="fas fa-times-circle"></i></a>
             <form action="https://formspree.io/f/xyyozwvn" method="post" id="my-form">

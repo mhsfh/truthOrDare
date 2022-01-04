@@ -1,3 +1,4 @@
+var form = document.getElementById("my-form");
 function idk() {
   nmbr = document.getElementsByClassName("slider")[0].value;
   document.getElementById("nmbr").innerHTML = nmbr;
@@ -8,6 +9,7 @@ function getRandomInt(nmbr) {
   x = document.getElementById("random").checked;
   nmbr = document.getElementsByClassName("slider")[0].value;
   if (x == true) {
+    document.getElementById("random").checked = true;
     document.getElementById("player").innerHTML = Math.round(
       Math.random() * nmbr + 0.5
     );
@@ -18,7 +20,19 @@ function getRandomInt(nmbr) {
     document.getElementById("player").innerHTML = y++;
   }
 }
-
+spne = document.getElementById("spinner0");
+spne.onchange = function () {
+  spn0 = document.getElementById("spinner0").checked;
+  if (spn0 == true) {
+    spinning = document.getElementsByClassName("spinning")[0];
+    player = document.querySelector(".game .output >h1");
+    player.style.display = "none";
+    spinning.style.display = "flex";
+  } else {
+    player.style.display = "block";
+    spinning.style.display = "none";
+  }
+};
 function check(event) {
   event.preventDefault();
   key = document.getElementById("key").value;
@@ -37,17 +51,15 @@ function check(event) {
 
   if (pswds.includes(key)) {
     spn = document.getElementById("spinner").checked;
-    psw.style.display = "none";
-    game.style.display = "flex";
-
+    console.log(spn);
     if (spn == true) {
       spinning = document.getElementsByClassName("spinning")[0];
       player = document.querySelector(".game .output >h1");
-      console.log(player);
       console.log(spinning);
-
       player.style.display = "none";
       spinning.style.display = "flex";
+
+      document.getElementById("spinner0").checked = true;
     }
   } else {
     document.getElementById("wrng").classList = "anim";
@@ -57,6 +69,10 @@ function check(event) {
     wrng.offsetHeight; /* trigger reflow */
     wrng.style.animation = null;
   }
+  setTimeout(() => {
+    psw.remove();
+  }, 30);
+  game.style.display = "flex";
 }
 function play1() {
   truth = truthtxt.split("@");
@@ -77,20 +93,22 @@ function spinner() {
   nmbr = document.getElementsByClassName("slider")[0].value;
   victim = Math.round(Math.random() * nmbr + 0.5);
   spiner = document.getElementsByClassName("spinner")[0];
-  console.log(" all layers =" + nmbr);
-  console.log(" player nmbr =" + victim);
   cof = 1 / nmbr;
-  console.log(" cof =" + cof);
   if (typeof deg == "number") {
     deg = Math.round(deg) + cof * victim + 10;
   } else {
     deg = cof * victim + 10;
   }
-  console.log(" deg =" + deg);
   spiner.style.transform = `rotate(${deg}turn) `;
 }
 
-var form = document.getElementById("my-form");
+// menu button
+menubtn = document.getElementsByClassName("fas fa-cog")[0];
+menubtn.onclick = function () {
+  menu = document.getElementById("menu");
+  menu.classList.toggle("show");
+  menubtn.classList.toggle("turn");
+};
 
 async function handleSubmit(event) {
   event.preventDefault();
