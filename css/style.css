@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
 }
 :root {
+  --cub: cubic-bezier(0.66, 1.31, 0.82, 0.82);
   --orange: #cc8a43;
   --rose: #df00b7;
   --rose2: #d889d4;
@@ -161,7 +162,7 @@ body {
 
 .game {
   padding-top: 80px;
-  display: none;
+  display: flex;
   flex-flow: column;
   row-gap: 50px;
   width: 100vw;
@@ -386,11 +387,13 @@ input:checked + .sliderx:before {
 
 #menu li h5,
 #menu a {
-  color: var(--notimp);
   text-decoration: none;
   font-weight: 700;
   margin: 10px 0;
   font-size: 15px;
+}
+#menu a {
+  color: var(--notimp);
 }
 .content a {
   color: white;
@@ -425,7 +428,7 @@ input:checked + .sliderx:before {
 }
 .spinning .spinner {
   margin: 20px;
-  transition: transform 5s;
+  transition: transform 5s var(--cub);
   background-image: conic-gradient(
     var(--movv) 10deg,
     var(--orange),
@@ -469,6 +472,7 @@ input:checked + .sliderx:before {
   align-items: center;
 }
 #menu li {
+  color: var(--gray);
   list-style: none;
   padding: 15px 25px 15px 70px;
   width: 100%;
@@ -494,7 +498,6 @@ input:checked + .sliderx:before {
   left: 41%;
 }
 #menu li span:first-child {
-  color: var(--gray);
   position: absolute;
   left: 10px;
   top: 50%;
@@ -502,6 +505,8 @@ input:checked + .sliderx:before {
   font-size: 30px;
 }
 #menu > span {
+  border: outset 2px var(--lsecond);
+  border-left: transparent;
   cursor: pointer;
   position: absolute;
   left: calc(100% - 5px);

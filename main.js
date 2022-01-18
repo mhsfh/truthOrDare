@@ -1,113 +1,67 @@
-var form = document.getElementById("my-form");
-function idk() {
-  nmbr = document.getElementsByClassName("slider")[0].value;
-  document.getElementById("nmbr").innerHTML = nmbr;
+allPlayers = document.getElementsByClassName("slider")[0]
+//default values
+spinner0.checked = false
+allPlayers.value = 5
+//
+allPlayers.onchange = function () {
+  document.getElementById("nmbr").innerHTML = allPlayers.value;
 }
-nmbr = document.getElementsByClassName("slider")[0].value;
 y = 1;
-function getRandomInt(nmbr) {
-  x = document.getElementById("random").checked;
-  nmbr = document.getElementsByClassName("slider")[0].value;
-  if (x == true) {
-    document.getElementById("random").checked = true;
-    document.getElementById("player").innerHTML = Math.round(
-      Math.random() * nmbr + 0.5
-    );
+function getRandomInt() {
+  if (random.checked) {
+    player.innerHTML = Math.round(Math.random() * allPlayers.value + 0.5);
   } else {
-    if (y > nmbr) {
-      y = 1;
-    }
-    document.getElementById("player").innerHTML = y++;
+    y > allPlayers.value ? y = 1 : null;
+    player.innerHTML = y++;
   }
 }
-spne = document.getElementById("spinner0");
-spne.onchange = function () {
-  spn0 = document.getElementById("spinner0").checked;
-  if (spn0 == true) {
+spinner0.onchange = function () {
+  if (spinner0.checked) {
     spinning = document.getElementsByClassName("spinning")[0];
     player = document.querySelector(".game .output >h1");
     player.style.display = "none";
     spinning.style.display = "flex";
+    menu.children[2].style.filter = "opacity(0.3)";
+    random.setAttribute("disabled", "");
+    random.checked = "true"
   } else {
+    random.removeAttribute("disabled", "");
+    menu.children[2].style.filter = "opacity(1)";
     player.style.display = "block";
     spinning.style.display = "none";
   }
 };
-function check(event) {
-  event.preventDefault();
-  key = document.getElementById("key").value;
-  wrng = document.getElementById("wrng");
-  psw = document.getElementsByClassName("psw")[0];
-  game = document.getElementsByClassName("game")[0];
-  var pswds = [
-    "zinom",
-    "hellofriends",
-    "Abde Nnour",
-    "Abdelalim",
-    "Souhail",
-    "Devil",
-    "Zaki",
-  ];
-
-  if (pswds.includes(key)) {
-    spn = document.getElementById("spinner").checked;
-    console.log(spn);
-    if (spn == true) {
-      spinning = document.getElementsByClassName("spinning")[0];
-      player = document.querySelector(".game .output >h1");
-      console.log(spinning);
-      player.style.display = "none";
-      spinning.style.display = "flex";
-      document.getElementsByClassName("output")[0].style.height = "140px";
-      document.getElementsByClassName("start")[0].style.height = "150px";
-      document.getElementById("rslt").style.margin = "0px";
-      document.getElementById("spinner0").checked = true;
-    }
-  } else {
-    document.getElementById("wrng").classList = "anim";
-    wrng.style.display = "block";
-    wrng.style.opacity = "1";
-    wrng.style.animation = "none";
-    wrng.offsetHeight; /* trigger reflow */
-    wrng.style.animation = null;
-  }
-  setTimeout(() => {
-    psw.remove();
-  }, 30);
-  game.style.display = "flex";
-}
 function play1() {
   truth = truthtxt.split("@");
-  getRandomInt(nmbr);
+  getRandomInt();
   x = Math.floor(Math.random() * truth.length);
   document.getElementById("rslt").innerHTML = truth[x];
   spinner();
 }
 function play2() {
   dare = daretxt.split("@@");
-  getRandomInt(nmbr);
+  getRandomInt();
   x = Math.floor(Math.random() * dare.length);
   document.getElementById("rslt").innerHTML = dare[x];
   spinner();
 }
-
 function spinner() {
-  nmbr = document.getElementsByClassName("slider")[0].value;
-  victim = Math.round(Math.random() * nmbr + 0.5);
+  victim = Math.floor(Math.random() * allPlayers.value);
   spiner = document.getElementsByClassName("spinner")[0];
-  cof = 1 / nmbr;
-  if (typeof deg == "number") {
-    deg = Math.round(deg) + cof * victim + 10;
-  } else {
-    deg = cof * victim + 10;
-  }
+  cof = 1 / allPlayers.value;
+  typeof deg == "number" ? deg = Math.round(deg) + cof * victim + 10 : deg = cof * victim + 10;
+  cubic()
   spiner.style.transform = `rotate(${deg}turn) `;
 }
-
+cub = ["cubic-bezier(.6,1.33,.8,.72)", "cubic-bezier(.67,1.32,.83,.82)", "cubic-bezier(.64,1.33,.78,.76)", "cubic-bezier(.72,1.29,.85,.89)", "cubic-bezier(1,1.52,.71,.65) ", "ubic-bezier(.92,1.52,.78,.58) ", "cubic-bezier(.66,1.42,.52,1.04) ", "cubic-bezier(.88,-0.47,.04,1.36) ", "cubic-bezier(.17,1.29,.93,.89) ",]
+bz = 0
+function cubic() {
+  bz == cub.length ? bz = 0 : null;
+  document.documentElement.style.setProperty("--cub", cub[bz++])
+}
 // menu button
 menubtn = document.getElementsByClassName("fas fa-cog")[0];
 menubtn.onclick = function () {
-  menu = document.getElementById("menu");
   menu.classList.toggle("show");
   menubtn.classList.toggle("turn");
 };
@@ -128,7 +82,6 @@ async function handleSubmit(event) {
       status.innerHTML = "Thanks for your submission!";
       status.style.display = "block";
       content.style.display = "none";
-
       form.reset();
     })
     .catch((error) => {
@@ -136,6 +89,7 @@ async function handleSubmit(event) {
     });
 }
 form.addEventListener("submit", handleSubmit);
+
 
 var daretxt = `@@ Let another player post a status on your social.@@ Do freestyle rap for 1 minute about the other participants.@@ Smell every other players’ armpits.@@ Kiss the person to your left.@@ Do an impression of another player until someone can figure out who it is.@@ Call your crush.@@ Dance with no music for 1 minute.@@ Do a cartwheel.@@ Let the person on your right draw on your face.@@. Give your phone to another player who can send one text saying anything they want to one of your contacts.@@. Drink lemon juice.@@. Crack an egg on our head.@@. Swap clothes with someone of the opposite sex for 2 rounds.@@. Act like a chicken until your next turn.@@. Burp the alphabet.@@. Talk in a Jamaican accent until your next turn.@@. Call a friend, pretend it’s their birthday, and sing “Happy Birthday” to them.@@. Perform ballet for 1 minute.@@. Shower with your clothes on.@@. Take a selfie on the toilet and post it.@@. End each sentence with the word “not” until your next turn.@@. Name a famous person that looks like each player.@@. Dance like your life depends on it.@@. Eat a packet of hot sauce or ketchup straight.@@. Pour ice down your pants.@@. Spin around 12 times and try to walk straight.@@. Put on a blindfold and touch the other players’ faces until you can figure out who it is.@@. Let the other players redo your hairstyle.@@. Eat a raw egg.@@. Let the player to your right redo your makeup.@@. Pretend to be a squirrel until your next turn.@@. Dump a bucket of cold water on your head.@@. Lick a bar of soap.@@. Eat a teaspoon of mustard.@@. Talk without closing your mouth.@@. You have 5 minutes to write a country song and perform it.@@. Let someone paint your nails any way they want.@@. Do 5 minutes of stand-up comedy.@@. Quack like a duck until your next turn.@@. Sing the national anthem in a British accent.
 `;
