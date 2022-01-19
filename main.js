@@ -1,7 +1,7 @@
 allPlayers = document.getElementsByClassName("slider")[0]
 //default values
-spinner0.checked = false
-allPlayers.value = 5
+spinner0.checked = false;
+allPlayers.value = 4;
 //
 allPlayers.onchange = function () {
   document.getElementById("nmbr").innerHTML = allPlayers.value;

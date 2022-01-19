@@ -417,6 +417,7 @@ input:checked + .sliderx:before {
   animation: fade 4s 1s forwards;
 }
 .spinning {
+  overflow: hidden;
   background-color: var(--second);
   height: 90vw;
   width: 90vw;
